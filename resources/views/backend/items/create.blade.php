@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid">
-	<h2>Item create (Form)</h2>
+	<h2>Item Create (Form)</h2>
 	@if ($errors->any())
 	<div class="alert alert-danger">
 		<ul>

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid">
-	<h2>Item Detail (Form) </h2>
+	<h2>Brand Edit (Form/ Old value)</h2>
 	
 </div>
 

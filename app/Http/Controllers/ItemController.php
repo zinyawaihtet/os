@@ -9,6 +9,10 @@ use App\Subcategory;
 
 class ItemController extends Controller
 {
+    
+    
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -89,6 +93,7 @@ class ItemController extends Controller
     public function show($id)
     {
         $item=Item::find($id);
+        // dd($item);
         //dd(item);
         return view('backend.items.show',compact('item'));
         
@@ -146,6 +151,8 @@ class ItemController extends Controller
 
         //delete old photo (unlink)
 
+        unlink ($request->oldphoto);
+
     }else{
         $myfile=$request->oldphoto;
     }
@@ -180,6 +187,8 @@ class ItemController extends Controller
         $item=Item::find($id);
         $item->delete();
         //redirect
+
+        unlink ($item->photo);
         return redirect()->route('items.index');
     }
 }

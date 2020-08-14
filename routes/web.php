@@ -19,7 +19,32 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/','BackendController@dashboard')->name('dashboard');
+//Frontend ----------------------
+Route::get('/','FrontendController@home')->name('homepage');
+
+Route::get('filter_item','FrontendController@filter_item')->name('filter_item');
+
+Route::get('itemdetail/{id}','FrontendController@itemdetail')->name('detailpage');
+
+Route::get('login','FrontendController@login')->name('loginpage');
+
+Route::get('register','FrontendController@register')->name('registerpage');
+
+Route::get('checkout','FrontendController@checkout')->name('checkout');
+
+Route::get('profile','FrontendController@profile')->name('profile');
+
+
+Route::get('filter_brand','FrontendController@filter_brand')->name('filter_brand');
+
+Route::get('branddetail/{id}','FrontendController@branddetail')->name('branddetail');
+
+//Backend---------------
+Route::middleware('auth')->group(function(){
+
+Route::resource('orders','OrderController');
+
+Route::get('dashboard','BackendController@dashboard')->name('dashboard');
 
 Route::resource('items','ItemController');//7 (get-4 / post-1 / put-1 / delete-1)
 
@@ -28,6 +53,11 @@ Route::resource('brands','BrandController');
 Route::resource('categories','CategoryController');
 
 Route::resource('subcategories','SubcategoryController');
+});
+//End Backend----------- 
 
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

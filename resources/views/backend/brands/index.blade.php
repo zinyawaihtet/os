@@ -15,19 +15,29 @@
 			</tr>
 		</thead>
 		<tbody>
+			@foreach($brands as $brand)
 			<tr>
-				<td>Brand One</td>
-				<td>9500 MMK</td>
+				
+				<td>{{$brand->name}}</td>
+				<td><img src="{{asset($brand->photo)}}"></td>
 				<td>
-					<a href="{{route('brands.edit',1)}}" class="btn btn-warning">Edit</a>
-					<a href="#" class="btn btn-danger">Delete</a>
+					<a href="{{route('brands.edit',$brand->id)}}" class="btn btn-warning">Edit</a>
+					<form method="post" action="{{route('brands.destroy',$brand->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block" >
+						@csrf
+						@method("DELETE")
+						<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
+						
+					</form>
 
 				</td>
 			</tr>
+			@endforeach
 		</tbody>
 		
 	</table>
 	
 </div>
+
+
 
 @endsection

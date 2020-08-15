@@ -32,12 +32,9 @@ Route::get('register','FrontendController@register')->name('registerpage');
 
 Route::get('checkout','FrontendController@checkout')->name('checkout');
 
-Route::get('profile','FrontendController@profile')->name('profile');
+Route::get('profile','FrontendController@profile')->name('profilepage');
 
 
-Route::get('filter_brand','FrontendController@filter_brand')->name('filter_brand');
-
-Route::get('branddetail/{id}','FrontendController@branddetail')->name('branddetail');
 
 //Backend---------------
 Route::middleware('auth')->group(function(){
@@ -53,6 +50,8 @@ Route::resource('brands','BrandController');
 Route::resource('categories','CategoryController');
 
 Route::resource('subcategories','SubcategoryController');
+
+Route::resource('orders','OrderController');
 });
 //End Backend----------- 
 

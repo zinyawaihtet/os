@@ -41,12 +41,5 @@ class FrontendController extends Controller
     {
     	return view('frontend.profile');
     }
-    public function filter_brand($value='')
-    {
-        return view('frontend.brands');
-    }
-    public function branddetail($id)
-    {
-        return view('frontend.branddetail');
-    }
+    
 }

@@ -1,6 +1,6 @@
 @extends('frontendtemplate')
 @section('content')
-<div class="col-lg-6">
+<div class="col-lg-6 py-4">
 	<h2>Customer Profile Page</h2>
 	
         <!-- map and forms -->
@@ -12,7 +12,7 @@
        			</div>
        			<div class="col-lg-6 col-md-6 col-sm-12">
        				<div class="row">
-       					<form name="send_form" class="w-100">
+       					<form name="send_form" class="w-100" method="GET">
 	       					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 	       						<input type="text" placeholder="Your Name" id="cname" name="cname" class="form-control" required="required">
 	       					</div>

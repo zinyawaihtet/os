@@ -8,7 +8,7 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				
+				<th>No</th>
 				<th>Name</th>
 				<th>Photo</th>
 				<th>Actions</th>
@@ -16,14 +16,22 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>Category One</td>
-				<td>7000 MMK</td>
+				@php $i=1; @endphp
+				@foreach($categories as $category)
+				<td>{{$i++}}</td>
+				<td>{{$category->name}}</td>
+				<td><img src="{{$category->photo}}" width="100" height="100"></td>
 				<td>
-					<a href="{{route('categories.edit',1)}}" class="btn btn-warning">Edit</a>
-					<a href="#" class="btn btn-danger">Delete</a>
-
+					<a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning">Edit</a>
+					<form method="post" action="{{route('categories.destroy',$category->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block" >
+						@csrf
+						@method("DELETE")
+						<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
+						
+					</form>
 				</td>
 			</tr>
+			@endforeach
 		</tbody>
 		
 	</table>

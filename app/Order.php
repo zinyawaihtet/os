@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Order extends Model
 {
@@ -15,5 +16,9 @@ public function items($value='')
 	return $this->belongsToMany('App\Item','order_detail')
 				->withPivot('qty')
 				->withTimestamps();
+}
+public function user($value='')
+{
+	return $this->belongsTo('App\User');
 }
 }

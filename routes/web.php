@@ -52,10 +52,11 @@ Route::resource('categories','CategoryController');
 
 Route::resource('subcategories','SubcategoryController');
 
-Route::resource('orders','OrderController');
+
 });
 //End Backend----------- 
 
+Route::resource('orders','OrderController');
 
 
 Auth::routes();

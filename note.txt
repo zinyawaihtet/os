@@ -61,5 +61,5 @@ Items Manage
 -enter into folder (cd )
 -cp .env.example .env
 -composer install
-php artisan key:generate
+-php artisan key:generate
 

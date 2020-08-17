@@ -47,6 +47,7 @@ class FrontendController extends Controller
     public function getItems(Request $request)
     {
         $sid=$request->sid;
+        // echo "$sid";
         if ($sid==0) {
             $items=Item::all();
         }else{

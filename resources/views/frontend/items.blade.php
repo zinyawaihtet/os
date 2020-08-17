@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="col-lg-9 py-3">
-	<h2>Item Page Filter By Brand and Subcategory</h2>
+	<h2>Item Page</h2>
 
 	<div id="myItems" class="row">
 
@@ -31,7 +31,7 @@
 			showItems(0);
 			function showItems(id){
 				$.post("{{route('getitems')}}",{sid:id},function(res){
-				// console.log(res);
+				console.log(res);
 
 				var html='';
 				$.each(res,function(i,v){
@@ -67,6 +67,9 @@
 
 		$('.filter').click(function(){
 			var id=$(this).data('id');
+			// alert(id);
+
+			console.log(id);
 			showItems(id);
 		})
 

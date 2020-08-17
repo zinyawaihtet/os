@@ -21,7 +21,7 @@
 			@php $i=1; @endphp
 			@foreach($orders as $order)
 			<tr>
-				<td>{{$i++}} <a href="{{route('orders.show',$order->id)}}"><span class="badge badge-primary badge-pill">Detail</span> </a></td>
+				<td>{{$i++}} {{-- <a href="{{route('orders.show',$order->id)}}"><span class="badge badge-primary badge-pill">Detail</span> </a> --}}</td>
 				<td>{{$order->voucherno}}</td>
 				<td>{{$order->orderdate}}</td>
 				<td>{{$order->note}}</td>
@@ -30,16 +30,9 @@
 
 
 				<td>
-					<a href="#" class="btn btn-warning">Edit</a>
+					<a href="{{route('orders.show',$order->id)}}" class="btn btn-warning">Detail</a>
 					
-					<form method="post" action="" onsubmit="return confirm('Are you sure?')" class="d-inline-block" >
-						@csrf
-						@method("DELETE")
-						<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
-						
-					</form>
-					
-
+					<a href="" class="btn btn-danger">Confirm</a>
 				</td>
 				
 			</tr>

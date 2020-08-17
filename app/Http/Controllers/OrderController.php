@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class OrderController extends Controller
-{    public function_construct($value='')
+{    public function __construct($value='')
     {
         $this->middleware('role:admin')->except('store');
-        $this->middleware('role:customer')->except('store');
+        $this->middleware('role:customer')->only('store');
 
     }
     /**

@@ -21,7 +21,7 @@
 			<tr>
 				<td>{{$i++}}</td>
 				<td>{{$item->codeno}} <a href="{{route('items.show',$item->id)}}"><span class="badge badge-primary badge-pill">Detail</span> </a>
-				<a href="#" class="box badge badge-primary badge-pill" data-name="{{$item->name}}" data-photo="{{asset($item->photo)}}" data-price="{{$item->price}}" data-desc={{$item->description}}><span class="badge-primary badge-pill"> Modal</span></a>
+				<a href="#" class="box badge badge-primary badge-pill" data-name="{{$item->name}}" data-photo="{{asset($item->photo)}}" data-price="{{$item->price}}" data-desc={{$item->description}}><span class="badge badge-primary badge-pill"> Modal</span></a>
 				</td>
 				<td>{{$item->name}}</td>
 				<td>{{$item->price}} MMK</td>

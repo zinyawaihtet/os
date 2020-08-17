@@ -13,13 +13,15 @@
        			<div class="col-lg-6 col-md-6 col-sm-12">
        				<div class="row">
        					<form name="send_form" class="w-100" method="GET">
+
 	       					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-	       						<input type="text" placeholder="Your Name" id="cname" name="cname" class="form-control" required="required">
+	       						
+	       						<input type="text" placeholder="Your Name" id="cname" name="cname" class="form-control" required="required" value="{{Auth::user()->name}}">
 	       					</div>
 	       					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-	       						<input type="email" placeholder="Your email" id="cemail" name="cemail" class="form-control" required="required">
+	       						<input type="email" placeholder="Your email" id="cemail" name="cemail" class="form-control" required="required" value="{{Auth::user()->email}}">
 	       					</div>
-	       					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+	       					{{-- <div class="col-lg-12 col-md-12 col-sm-12 form-group">
 	       						<input type="text" placeholder="Phone Number" id="cphone" name="csubject" class="form-control" required="required">
 	       					</div>
 	       					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
@@ -27,7 +29,7 @@
 	       					</div>
 	       					<div class="ml-3">
 	       						<button type="submit" class="btn btn-outline-info" onclick="sendForm()">Send</button>
-	       					</div>
+	       					</div> --}}
 	       				</form>
        				</div>
        			</div>

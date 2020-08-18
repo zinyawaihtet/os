@@ -46,7 +46,7 @@ class LoginController extends Controller
         $roles=$user->getRoleNames();
 
         // Check user role
-        switch ($roles[0]) {
+        switch($roles[0]){
             case'admin':
                 return redirect('/dashboard');
                 break;

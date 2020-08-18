@@ -2,36 +2,22 @@
 
 @section('content')
 
-<div class="container-fluid table-responsive">
-
-  <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Order Detail</h1>
-
-
-
-    <a href="index.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Dashboard</a>
-  </div>
-
   <div class="container table-responsive">
     <div class="row border border-dark">
       <div class="col-md-12 text-center">
         <h3 class="py-2">Zin Online Shop</h3>
         <p class="text-center">Mandalay</p>
-        <p class="text-center">09458976589</p>
+        <p class="text-center">Tel: 09458976589</p>
       </div>
       <div class="col-md-6">
        <div class="row">
         <div class="col-md-6">
           
-          <p>Voucher No</p>
-          <p>:{{$order->voucherno}}</p>
+          <p>Voucher No: {{$order->voucherno}}</p>
+          <p>Casher: Zin Zin	</p>
         </div>
 
-        <div class="col-md-6">
-          <p>: Zin Zin</p>
-          
-        </div>
+        
       </div>
     </div>
     <div class="col-md-6">
@@ -42,8 +28,8 @@
 
         </div>
         <div class="col-md-6">
-          <p> {{$order->orderdate}}</p>
-          <p> {{$order->orderdate}}</p>
+          <p> {{date('Y-m-d')}}</p>
+          <p> {{date('h-i-s A')}}</p>
         </div>
       </div>
     </div>
@@ -60,22 +46,37 @@
       </thead>
 
       <tbody>
+      	@php 
+      		$total=0; 
+      		@endphp
         @foreach($order->items as $item)
-        <tr>
-        	<td>{{$item->name}}</td>
-        	<td>{{$item->price}}</td>
-        	<td>{{$item->qty}}</td>
-        	<td>{{$item}}</td>
+       
+        	
+        	@php $price=$item->price; @endphp
+        	@php $discount=$item->discount; @endphp
+        	@if($discount)
+        	@php $unit_price=$discount; @endphp
+        	@else
+        	@php $unit_price=$price; @endphp
+        	@endif
+
+        	<tr>
+        		<td>{{$item->name}}</td>
+        		<td>{{$unit_price}}</td>
+        		<td>{{$item->getRelationValue('pivot')->qty}}</td>
+        		<td>{{$amount=$unit_price*$item->getRelationValue('pivot')->qty}}</td>
+        	</tr>
+        	@php $total+=$amount; @endphp
         @endforeach
-        </tr>
+        
       </tbody>
       <tfoot>
-        {{-- <tr>
+        <tr>
           <td colspan="3">Total Amount</td>
           <td>
-            {{$order->total}}
+            {{$total}}
           </td>
-        </tr> --}}
+        </tr>
       </tfoot>
     </table>
   </div>

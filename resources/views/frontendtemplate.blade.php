@@ -101,7 +101,7 @@
 
       
       <!-- /.col-lg-3 -->
-      @yield('content');
+      @yield('content')
       <!-- /.col-lg-9 -->
 
     </div>
